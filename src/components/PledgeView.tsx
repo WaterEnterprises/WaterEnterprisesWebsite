@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { jsPDF } from 'jspdf';
 import { 
   HeartHandshake, 
   Coins, 
@@ -55,7 +54,8 @@ export default function PledgeView() {
     setTimeout(() => setCopiedText(null), 2000);
   };
 
-  const generatePrettyPDF = (rHash: string, sector: string, amt: number) => {
+  const generatePrettyPDF = async (rHash: string, sector: string, amt: number) => {
+    const { jsPDF } = await import('jspdf');
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -369,7 +369,7 @@ export default function PledgeView() {
     doc.save(`Stellarium_Ecosystem_Pledge_${rHash}.pdf`);
   };
 
-  const handleCreatePledge = (e: React.FormEvent) => {
+  const handleCreatePledge = async (e: React.FormEvent) => {
     e.preventDefault();
     const chars = '0123456789ABCDEFGPQSTWXYZ';
     let rHash = 'PLG-';
@@ -380,7 +380,7 @@ export default function PledgeView() {
     setPledgeConfirmed(true);
 
     try {
-      generatePrettyPDF(rHash, pledgeSector, pledgeAmt);
+      await generatePrettyPDF(rHash, pledgeSector, pledgeAmt);
     } catch (err) {
       console.error('Failed to auto-generate PDF', err);
     }
@@ -533,7 +533,7 @@ export default function PledgeView() {
                 <div className="space-y-3 max-w-md mx-auto pt-2">
                   <button
                     id="pledge-view-reprint"
-                    onClick={() => generatePrettyPDF(genHash, pledgeSector, pledgeAmt)}
+                    onClick={async () => { await generatePrettyPDF(genHash, pledgeSector, pledgeAmt); }}
                     className="w-full py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition text-xs flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <FileDown className="w-4 h-4" /> Download PDF Guide Again

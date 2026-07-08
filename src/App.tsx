@@ -20,6 +20,7 @@ import ProductsView from './components/ProductsView';
 import SponsorView from './components/SponsorView';
 import ContactView from './components/ContactView';
 import PledgeView from './components/PledgeView';
+import SecureCommsView from './components/SecureCommsView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
@@ -46,8 +47,12 @@ export default function App() {
             onClick={() => setActiveTab('home')} 
             className="flex items-center gap-2 cursor-pointer group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white text-xs shadow-md shadow-indigo-950/50">
-              W
+            <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-900 flex items-center justify-center shadow-md shadow-indigo-950/50">
+              <img
+                src="/logo.png"
+                alt="Water Enterprises logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <span className="font-bold text-sm tracking-widest text-white block group-hover:text-cyan-400 transition font-mono"> Water Enterprises</span>
@@ -59,7 +64,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <a 
               id="header-repository"
-              href="https://github.com/StellariumFoundation"
+              href="https://github.com/WaterEnterprises"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1 text-[11px] text-slate-400 hover:text-white font-mono transition"
@@ -80,21 +85,24 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
           >
-            {activeTab === 'home' && (
-              <HomeView onNavigate={(tab) => setActiveTab(tab)} />
-            )}
-            {activeTab === 'products' && (
-              <ProductsView />
-            )}
-            {activeTab === 'pledge' && (
-              <PledgeView />
-            )}
-            {activeTab === 'sponsor' && (
-              <SponsorView onNavigate={(tab) => setActiveTab(tab)} />
-            )}
-            {activeTab === 'contact' && (
-              <ContactView />
-            )}
+              {activeTab === 'home' && (
+                <HomeView onNavigate={(tab) => setActiveTab(tab)} />
+              )}
+              {activeTab === 'products' && (
+                <ProductsView />
+              )}
+              {activeTab === 'pledge' && (
+                <PledgeView />
+              )}
+              {activeTab === 'sponsor' && (
+                <SponsorView onNavigate={(tab) => setActiveTab(tab)} />
+              )}
+              {activeTab === 'contact' && (
+                <ContactView />
+              )}
+              {activeTab === 'secure' && (
+                <SecureCommsView />
+              )}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -118,7 +126,7 @@ export default function App() {
             </a>
             <a 
               id="footer-github-link"
-              href="https://github.com/StellariumFoundation" 
+              href="https://github.com/WaterEnterprises/"
               target="_blank" 
               rel="noopener noreferrer" 
               className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-850 hover:text-slate-200 transition flex items-center gap-1.5 text-[11px]"
@@ -208,6 +216,21 @@ export default function App() {
               )}
               <MessageSquareQuote className="w-5 h-5 mb-1" />
               <span className="text-[9px] uppercase tracking-wider font-mono">Contact</span>
+            </button>
+
+            {/* Tab 6: Secure Comms (Contact the Owner) */}
+            <button 
+              id="nav-tab-secure"
+              onClick={() => setActiveTab('secure')}
+              className={`flex flex-col items-center justify-center flex-1 h-full py-1 text-center transition cursor-pointer min-w-14 relative ${
+                activeTab === 'secure' ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-400'
+              }`}
+            >
+              {activeTab === 'secure' && (
+                <div className="absolute top-0 w-6 h-1 rounded-full bg-cyan-400 -mt-1 shadow-lg shadow-cyan-400/50" />
+              )}
+              <PhoneCall className="w-5 h-5 mb-1" />
+              <span className="text-[9px] uppercase tracking-wider font-mono">Secure</span>
             </button>
 
           </div>

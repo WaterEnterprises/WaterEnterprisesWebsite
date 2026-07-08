@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { jsPDF } from 'jspdf';
 import { 
   HeartHandshake, 
   Coins, 
@@ -143,7 +142,8 @@ export default function SponsorView({ onNavigate }: SponsorViewProps) {
     setTimeout(() => setCopiedText(null), 2000);
   };
 
-  const generatePrettyPDF = (rHash: string, sector: string, amt: number) => {
+  const generatePrettyPDF = async (rHash: string, sector: string, amt: number) => {
+    const { jsPDF } = await import('jspdf');
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -457,7 +457,7 @@ export default function SponsorView({ onNavigate }: SponsorViewProps) {
     doc.save(`Stellarium_Ecosystem_Pledge_${rHash}.pdf`);
   };
 
-  const handleCreatePledge = (e: React.FormEvent) => {
+  const handleCreatePledge = async (e: React.FormEvent) => {
     e.preventDefault();
     const chars = '0123456789ABCDEFGPQSTWXYZ';
     let rHash = 'STELLAR-PLG-';
@@ -469,7 +469,7 @@ export default function SponsorView({ onNavigate }: SponsorViewProps) {
 
     // Automatically trigger gorgeous PDF generation and download
     try {
-      generatePrettyPDF(rHash, pledgeSector, pledgeAmt);
+      await generatePrettyPDF(rHash, pledgeSector, pledgeAmt);
     } catch (err) {
       console.error('Failed to auto-generate PDF', err);
     }

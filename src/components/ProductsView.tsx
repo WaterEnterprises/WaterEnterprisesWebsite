@@ -18,7 +18,6 @@ import {
   DollarSign,
   Play,
   ExternalLink,
-  Youtube,
   Tv
 } from 'lucide-react';
 import { WATER_PRODUCTS } from '../data';
@@ -107,6 +106,47 @@ function getProductVideoEmbed(id: string): { embedUrl: string; title: string; de
   }
 }
 
+function YouTubeEmbed({ embedUrl, title }: { embedUrl: string; title: string }) {
+  const [playing, setPlaying] = useState(false);
+  const videoId = embedUrl.split('/embed/')[1] ?? '';
+
+  if (playing) {
+    return (
+      <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800/80 bg-slate-900/60 shadow-inner">
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`${embedUrl}?autoplay=1`}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setPlaying(true)}
+      className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800/80 bg-slate-900/60 shadow-inner group cursor-pointer"
+      aria-label={`Play ${title}`}
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+        alt={title}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
+      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center shadow-lg group-hover:scale-105 transition">
+          <Play className="w-7 h-7 text-white ml-1" />
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export default function ProductsView() {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
@@ -115,7 +155,7 @@ export default function ProductsView() {
       {/* Refined Header Section */}
       <div className="space-y-4 text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[10px] text-slate-400 font-mono uppercase tracking-widest">
-          <Youtube className="w-3.5 h-3.5 text-rose-500" />
+          <Tv className="w-3.5 h-3.5 text-rose-500" />
           Official Channel Connected
         </div>
         
@@ -134,7 +174,7 @@ export default function ProductsView() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800/80 border border-slate-800 text-xs text-white font-mono transition cursor-pointer"
           >
-            <Youtube className="w-4 h-4 text-red-500" />
+            <Tv className="w-4 h-4 text-red-500" />
             <span>Visit @StellariumFoundation YouTube</span>
             <ExternalLink className="w-3 h-3 text-slate-500" />
           </a>
@@ -300,7 +340,7 @@ export default function ProductsView() {
                               rel="noopener noreferrer"
                               className="text-[11px] text-red-400 hover:text-red-300 font-mono uppercase tracking-wider flex items-center gap-1 self-start sm:self-center font-bold"
                             >
-                              <Youtube className="w-4 h-4 text-red-500" /> Visit Channel
+                              <Tv className="w-4 h-4 text-red-500" /> Visit Channel
                             </a>
                           </div>
 
@@ -308,17 +348,8 @@ export default function ProductsView() {
                             {videoData.desc} Watch the live technical explanation of the Stellarium architecture directly from our broadcast repository:
                           </p>
 
-                          {/* Beautiful responsive video iframe */}
-                          <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800/80 bg-slate-900/60 shadow-inner">
-                            <iframe 
-                              className="absolute inset-0 w-full h-full"
-                              src={videoData.embedUrl}
-                              title={videoData.title}
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                              allowFullScreen
-                            ></iframe>
-                          </div>
+                          {/* Beautiful responsive video — click to load the player (defers YouTube until needed) */}
+                          <YouTubeEmbed embedUrl={videoData.embedUrl} title={videoData.title} />
                         </div>
                       </div>
 
