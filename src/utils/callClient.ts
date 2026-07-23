@@ -12,7 +12,7 @@ function getBaseUrl(): string {
   if (import.meta.env.DEV) return '';
   const env = (import.meta as any).env?.VITE_CALLER_BASE_URL;
   if (env) return env;
-  return 'https://callerserver.onrender.com';
+  return 'https://callserver-jyzl.onrender.com';
 }
 
 const decoder = new TextDecoder();
