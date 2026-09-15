@@ -140,7 +140,7 @@ ${formData.message}
                 </div>
                 <div className="text-xs">
                   <span className="text-slate-500 block font-mono uppercase">Contact Telephone</span>
-                  <a href="tel:+558198392658" className="text-slate-200 hover:text-emerald-400 font-mono transition">+5581993953560</a>
+                  <a href="tel:+5561990229976" className="text-slate-200 hover:text-emerald-400 font-mono transition">+5561990229976</a>
                 </div>
               </div>
 

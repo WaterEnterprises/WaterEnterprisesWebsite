@@ -737,6 +737,21 @@ export default function SponsorView({ onNavigate }: SponsorViewProps) {
                   </button>
                   <span className="text-[9px] text-slate-500">GLOBAL</span>
                 </div>
+                <a
+                  id="paypal-direct-link"
+                  href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=stellar.foundation.us@gmail.com&currency_code=USD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-slate-900 hover:bg-slate-850 hover:border-cyan-500/30 text-white py-2 px-3 border border-slate-800 rounded-xl flex items-center justify-between transition group cursor-pointer text-xs font-mono"
+                >
+                  <span className="text-slate-300 flex items-center gap-2">
+                    <Wallet className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition" />
+                    Pay via PayPal Checkout
+                  </span>
+                  <span className="text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition text-[10px]">
+                    Open PayPal <ExternalLink className="w-3 h-3" />
+                  </span>
+                </a>
               </div>
 
               {/* BRL PIX */}

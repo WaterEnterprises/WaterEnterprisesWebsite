@@ -7,7 +7,6 @@ export interface WaterProduct {
   vision: string;
   status: 'Concept' | 'Prototype' | 'Alpha' | 'Beta' | 'Market Ready';
   fundingGoal: string;
-  fundingRaised: string;
   problem: string;
   solution: string;
   keyFeatures: string[];

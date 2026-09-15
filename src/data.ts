@@ -8,7 +8,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'To serve as a universal force-multiplier for human potential, aggregating the world\'s best specialized AI knowledge and action-taking capabilities.',
     status: 'Concept',
     fundingGoal: '$600,000',
-    fundingRaised: '$120,000',
     problem: 'AI power is highly fragmented. Users must navigate complex, disjointed networks of specialized tools, and general LLMs lack deep workflow execution capabilities, limiting actual labor contribution.',
     solution: 'An intelligent routing model that dynamically decomposes user prompts, hires specialized models (law, finance, code) for subtasks, and performs actual action execution (drafting contracts, deploying code, compiling spreadsheets) instead of just chatting.',
     keyFeatures: [
@@ -34,7 +33,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'A paradigm-shifting operating system for enterprises, enabling users to spin up entire corporate hierarchies staffed by specialized, collaborating AI agents.',
     status: 'Prototype',
     fundingGoal: '$5,000,000',
-    fundingRaised: '$2,800,000',
     problem: 'Human workflows face severe backlogs, organizational friction, and scaling limits. Current AI tools require manual babysitting rather than corporate collaboration.',
     solution: 'An integrated OS where users "hire" pre-trained specialized AI employees (AI Lawyers, AI Financial Analysts, AI Project Managers). Agents reside in hierarchies under an AI CEO, collaborating via RabbitMQ queues to execute aggregate projects 24/7.',
     keyFeatures: [
@@ -60,7 +58,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'To foster social collaboration, fun and connection by engineering a platform where genuine community and celebration are perfectly curated, safe, and accessible.',
     status: 'Concept',
     fundingGoal: '$800,000',
-    fundingRaised: '$75,000',
     problem: 'Modern digital life fosters isolation. Traditional nightlife and event platforms lack vetting, leading to mismatched energies, flakey RSVPs, and concerns over personal safety.',
     solution: 'The "Slot & Match" protocol. Hosts publish experiences with a fixed number of slots (e.g. 5 open spots). Guests swipe to apply. The host curates applicants based on vibe, mutual matches, and trust scores. Upon match, the location unlocks, and chat goes live.',
     keyFeatures: [
@@ -86,7 +83,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'To bridge global labor shortages in physical industries by allowing workers to teleoperate bipedal humanoid robots from anywhere in the world.',
     status: 'Concept',
     fundingGoal: '$7,000,000',
-    fundingRaised: '$650,000',
     problem: 'Critical manual labor shortages in regions like Western Australia or northern Canada stall infrastructure, construction, and extraction, while labor surpluses exist elsewhere with no mobility options.',
     solution: 'Renting out rugged, bipedal humanoid robots equipped with 5G connectivity. Workers in labor-rich areas put on VR headsets (Oculus, Apple Vision Pro) to operate these robots remotely with zero physical relocation.',
     keyFeatures: [
@@ -112,7 +108,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'A complete, gamified modular school accessible globally, designed to completely democratize learning and eliminate educational gaps.',
     status: 'Concept',
     fundingGoal: '$1,000,000',
-    fundingRaised: '$180,000',
     problem: 'Traditional education is rigidly slow, geographically bottlenecked, and prohibitively expensive, leaving millions of gifted or underserved children behind.',
     solution: 'An all-in-one virtual academy providing customizable curriculum options. Fun, AI-animated interactive lectures are automatically generated. AI Tutors assist 24/7, and computerized exams use standard proctoring algorithms.',
     keyFeatures: [
@@ -138,7 +133,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'A revolutionary "super app" to completely debureaucratize citizen-government interaction, simplifying public services under high performance.',
     status: 'Concept',
     fundingGoal: '$1,500,000',
-    fundingRaised: '$250,000',
     problem: 'Citizens are forced to wander complex, opaque networks of municipal portals for tax filing, business set-ups, and permit requests, breeding delays and corruption opportunities.',
     solution: 'A unified app that replaces forms with natural-language conversations. An AI assistant fills out documents automatically. Applications are evaluated by specialized backend policy engines, highlighting exceptions for human review.',
     keyFeatures: [
@@ -164,7 +158,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'An artificial intelligence economy foundational model to validate theories and simulate monetary impacts with empirical data.',
     status: 'Concept',
     fundingGoal: '$500,000',
-    fundingRaised: '$95,000',
     problem: 'Economic policies are often initiated based on political ideology or incomplete static theories, leading to inflation, wealth gaps, and systemic failures.',
     solution: 'Fusing global economic variables (CPI, interest rates, import metrics) into a dynamic system. Central banks or advisors can plug in policy shifts to simulate immediate downstream feedback.',
     keyFeatures: [
@@ -189,7 +182,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'A torrent-inspired decentralized mesh that slashes inference costs of running autonomous agents by utilizing idle compute globally.',
     status: 'Concept',
     fundingGoal: '$1,200,000',
-    fundingRaised: '$310,000',
     problem: 'Centralized cloud computational charges block scaling of multi-agent digital workforces, making AI labor expensive for small startups.',
     solution: 'A software client allowing anyone to contribute idle GPU/CPU cycles. Contributors earn priority routing credits. A seeding algorithm tracks contributions and splits heavy inference queries.',
     keyFeatures: [
@@ -215,7 +207,6 @@ export const WATER_PRODUCTS: WaterProduct[] = [
     vision: 'A personalized virtual executive strategist residing directly on user devices, guiding users to achieve their daily study and work quests.',
     status: 'Concept',
     fundingGoal: '$400,000',
-    fundingRaised: '$60,000',
     problem: 'Traditional task tools merely register check boxes, failing to coach, validate, or actively direct work, which leads to focus depletion.',
     solution: 'An proactive AI companion that monitors daily tasks. Users explain their session naturally, and the model holds them accountable in real-time, providing feedback like a true work teammate.',
     keyFeatures: [

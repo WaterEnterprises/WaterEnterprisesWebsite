@@ -237,19 +237,11 @@ export default function ProductsView() {
                   {prod.vision}
                 </p>
 
-                {/* Funding Goal Progress bar */}
+                {/* Funding Goal */}
                 <div className="space-y-1.5 pt-2 border-t border-slate-800/50">
                   <div className="flex justify-between text-[11px] font-mono">
-                    <span className="text-slate-500">Seed Commitment:</span>
-                    <span className="text-white">{prod.fundingRaised} / <span className="text-cyan-400">{prod.fundingGoal}</span></span>
-                  </div>
-                  <div className="w-full bg-slate-900 rounded-full h-1 border border-slate-850">
-                    <div 
-                      className="bg-gradient-to-r from-cyan-400 to-indigo-500 h-1 rounded-full" 
-                      style={{ 
-                        width: `${Math.min(100, (parseFloat(prod.fundingRaised.replace(/[^0-9.]/g, '')) / parseFloat(prod.fundingGoal.replace(/[^0-9.]/g, ''))) * 100)}%` 
-                      }}
-                    />
+                    <span className="text-slate-500">Funding Goal:</span>
+                    <span className="text-cyan-400">{prod.fundingGoal}</span>
                   </div>
                 </div>
               </div>

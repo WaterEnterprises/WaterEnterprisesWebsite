@@ -49,18 +49,10 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
           </p>
 
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-800/60">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 pt-4 border-t border-slate-800/60">
             <div className="space-y-1">
               <span className="text-xs text-slate-400 uppercase font-mono tracking-wider">Suite Target</span>
               <p className="text-xl font-bold text-white font-mono">{INVESTOR_OPTIONS.seedRoundGoal}</p>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs text-slate-400 uppercase font-mono tracking-wider">Committed Capital</span>
-              <p className="text-xl font-bold text-emerald-400 font-mono">{INVESTOR_OPTIONS.currentRaised}</p>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs text-slate-400 uppercase font-mono tracking-wider">Committed Partners</span>
-              <p className="text-xl font-bold text-cyan-300 font-mono">{INVESTOR_OPTIONS.investorsCount} Global</p>
             </div>
             <div className="space-y-1">
               <span className="text-xs text-slate-400 uppercase font-mono tracking-wider">Min. Commitment</span>
